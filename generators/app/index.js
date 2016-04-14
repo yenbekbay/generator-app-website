@@ -73,8 +73,14 @@ module.exports = generator.Base.extend({
       name: 'googleAnalytics',
       message: 'Your Google Analytics tracking code (UA-XXXXXXXX-X)'
     }, {
+      name: 'useCustomAppStoreBadge',
+      message: 'Use custom Download on the App Store badge?',
+      type: 'confirm',
+      default: true,
+      when: answers => !!answers.appStoreId
+    }, {
       name: 'backgroundColor',
-      message: 'Color for the website\'s background',
+      message: 'Background color',
       default: '#3f4f63'
     }, {
       name: 'textColor',
@@ -125,7 +131,8 @@ module.exports = generator.Base.extend({
         appStoreId: this.props.appStoreId,
         twitter: this.props.twitter,
         facebook: this.props.facebook,
-        googleAnalytics: this.props.googleAnalytics
+        googleAnalytics: this.props.googleAnalytics,
+        useCustomAppStoreBadge: this.props.useCustomAppStoreBadge || true
       }
     );
     this.fs.copy(

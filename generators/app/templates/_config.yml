@@ -8,6 +8,7 @@ language: <%= language %>
 country: <%= country %>
 author: "<%= authorName %>"
 author_url: "<%= authorUrl || "#" %>"
+use_custom_appstore_badge: <%= useCustomAppStoreBadge %>
 
 # Optional fields
 appstore_id: <%= appStoreId || "null" %>

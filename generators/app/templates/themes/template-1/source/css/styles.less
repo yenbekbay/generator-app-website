@@ -70,27 +70,29 @@ p {
   table-layout: fixed;
   text-align: center;
   width: 100%;
-
   .button, .button:visited {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    background-size: 39px 39px;
-    background: url("../img/appstore.svg") 13px center no-repeat;
-    border-radius: 4px;
-    box-shadow: 0 0 0 1px darken(@accent-color, 20%) inset;
-    box-sizing: border-box;
-    color: @accent-color;
     display: inline-block;
     margin-top: 1em;
-    padding: 9px 15px 10px 64px;
   }
-  .button:hover {
-    -moz-animation: pulse 1s infinite ease-in-out;
-    -ms-animation: pulse 1s infinite ease-in-out;
-    -o-animation: pulse 1s infinite ease-in-out;
-    -webkit-animation: pulse 1s infinite ease-in-out;
-    animation: pulse 1s infinite ease-in-out;
-    box-shadow: 0 0 0 1px #d0a770 inset;
+  .button-custom {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-size: 39px 39px;
+    background: url("../img/appstore-custom.svg") 13px center no-repeat;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px darken(@accent-color, 20%) inset;
+    color: @accent-color;
+    padding: 9px 15px 10px 64px;
+    text-align: left;
+    &:hover {
+      -moz-animation: pulse 1s infinite ease-in-out;
+      -ms-animation: pulse 1s infinite ease-in-out;
+      -o-animation: pulse 1s infinite ease-in-out;
+      -webkit-animation: pulse 1s infinite ease-in-out;
+      animation: pulse 1s infinite ease-in-out;
+      box-shadow: 0 0 0 1px #d0a770 inset;
+    }
   }
   .carousel-container {
     background: url("../img/iphone.svg") center center no-repeat;

@@ -3,7 +3,15 @@
     <h1><%= config.title %></h1>
     <p><%= config.tagline %></p>
     <% if (config.appstore_id) { %>
-    <a class="button" href="https://itunes.apple.com/app/id<%= config.appstore_id %>"><%= __('Download on the') %><br>App Store</a>
+    <% if (config.use_custom_appstore_badge) { %>
+    <a class="button button-custom" href="https://itunes.apple.com/app/id<%= config.appstore_id %>">
+      <%= __('Download on the') %><br>App Store
+    </a>
+    <% } else { %>
+    <a class="button" href="https://itunes.apple.com/app/id<%= config.appstore_id %>">
+      <img src="img/appstore-<%= config.language %>.svg">
+    </a>
+    <% } %>
     <% } %>
   </div>
   <div id="screenshots">
