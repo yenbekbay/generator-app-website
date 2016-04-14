@@ -1,0 +1,55 @@
+## Docs: http://hexo.io/docs/configuration.html
+
+# Required fields
+title: "<%= appName %>"
+tagline: "<%= appTagline %>"
+theme: template-1
+language: <%= language %>
+country: <%= country %>
+author: "<%= authorName %>"
+author_url: <%= authorUrl %>
+
+# Optional fields
+appstore_id: <%= appStoreId %>
+twitter: <%= twitter %>
+facebook: <%= facebook %>
+google_analytics: <%= googleAnalytics %>
+
+# URL
+url: <%= appUrl %>
+root: /
+
+# Directory
+source_dir: source
+public_dir: public
+i18n_dir: :lang
+
+# Minification
+html_minifier:
+  enable: false
+css_minifier:
+  enable: true
+  exclude:
+    - '*.min.css'
+js_minifier:
+  enable: true
+  mangle: true
+  exclude:
+    - '*.min.js'
+image_minifier:
+  enable: false
+
+# Beautification
+beautify:
+  types:
+    - html
+  html:
+    indent_inner_html: false
+    indent_size: 2
+    indent_with_tabs: false
+    max_preserve_newlines: 0
+
+# Date & time
+## http://momentjs.com/docs/#/displaying/format/
+date_format: LL
+time_format: HH:mm:ss

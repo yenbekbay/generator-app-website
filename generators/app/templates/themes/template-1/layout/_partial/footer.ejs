@@ -1,0 +1,29 @@
+<footer class="copyright">
+  © <a href="<%= config.author_url %>"><%= config.author %></a>
+</footer>
+
+<%- js('//npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js') %>
+<script type="text/javascript">
+  var flkty = new Flickity('.carousel', {
+    autoPlay: true,
+    wrapAround: true,
+    prevNextButtons: false,
+    pageDots: false
+  });
+</script>
+<% if (config.google_analytics) { %>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '<%= config.google_analytics %>']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<% } %>

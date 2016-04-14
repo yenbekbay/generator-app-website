@@ -1,0 +1,20 @@
+<section id="content">
+  <div id="meta">
+    <h1><%= config.title %></h1>
+    <p><%= config.tagline %></p>
+    <% if (config.appstore_id) { %>
+    <a class="button" href="https://itunes.apple.com/app/id<%= config.appstore_id %>"><%= __('Download on the') %><br>App Store</a>
+    <% } %>
+  </div>
+  <div id="screenshots">
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="img/screenshot-1.png">
+        <img src="img/screenshot-2.png">
+        <img src="img/screenshot-3.png">
+        <img src="img/screenshot-4.png">
+        <img src="img/screenshot-5.png">
+      </div>
+    </div>
+  </div>
+</section>
