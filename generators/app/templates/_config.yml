@@ -7,13 +7,13 @@ theme: template-1
 language: <%= language %>
 country: <%= country %>
 author: "<%= authorName %>"
-author_url: <%= authorUrl %>
+author_url: "<%= authorUrl || "#" %>"
 
 # Optional fields
-appstore_id: <%= appStoreId %>
-twitter: <%= twitter %>
-facebook: <%= facebook %>
-google_analytics: <%= googleAnalytics %>
+appstore_id: <%= appStoreId || "null" %>
+twitter: <%= twitter || "null" %>
+facebook: <%= facebook || "null" %>
+google_analytics: <%= googleAnalytics || "null" %>
 
 # URL
 url: <%= appUrl %>
