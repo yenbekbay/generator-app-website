@@ -1,6 +1,8 @@
 # generator-app-website [![NPM version][npm-image]][npm-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Generator for an iOS app website built with hexo
 
+Preview: [live demo](http://app-website-demo.surge.sh/).
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io), generator-app-website, [hexo](https://hexo.io/), and [surge](http://surge.sh/) using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)):
