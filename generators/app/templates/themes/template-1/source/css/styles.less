@@ -3,18 +3,12 @@
 @accent-color: <%= accentColor %>;
 
 * {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
   font-family: "Roboto", sans-serif;
   font-size: 1em;
   font-weight: 300;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  user-select: none;
 }
 html {
   background: @background-color;
@@ -22,29 +16,18 @@ html {
   height: 100%;
   width: 100%;
 }
-a, a:hover, a:visited, a:visited:hover {
-  -moz-transition-duration: 0.1s;
-  -moz-transition-property: background-color, box-shadow, color, opacity;
-  -moz-transition-timing-function: ease-in-out;
-  -ms-transition-duration: 0.1s;
-  -ms-transition-property: background-color, box-shadow, color, opacity;
-  -ms-transition-timing-function: ease-in-out;
-  -o-transition-duration: 0.1s;
-  -o-transition-property: background-color, box-shadow, color, opacity;
-  -o-transition-timing-function: ease-in-out;
-  -webkit-transition-duration: 0.1s;
-  -webkit-transition-property: background-color, box-shadow, color, opacity;
-  -webkit-transition-timing-function: ease-in-out;
+::selection {
+  background: fade(darken(@accent-color, 20%), 50%);
+}
+a {
   transition-duration: 0.1s;
   transition-property: background-color, box-shadow, color, opacity;
   transition-timing-function: ease-in-out;
+}
+a, a:hover, a:visited, a:visited:hover {
   text-decoration: none;
 }
 h1, p {
-  -moz-user-select: text;
-  -ms-user-select: text;
-  -o-user-select: text;
-  -webkit-user-select: text;
   user-select: text;
 }
 h1 {
@@ -53,25 +36,21 @@ h1 {
   margin-bottom: 0.5em;
 }
 p {
-  margin-bottom: 1em;
   line-height: 1.5;
+  margin-bottom: 1em;
 }
 #wrapper {
-  -moz-animation: top 1s 1 ease-in-out;
-	-ms-animation: top 1s 1 ease-in-out;
-	-o-animation: top 1s 1 ease-in-out;
-	-webkit-animation: top 1s 1 ease-in-out;
 	animation: top 1s 1 ease-in-out;
-  display: table;
-  max-width: 700px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
   bottom: 0;
+  display: table;
+  left: 0;
+  margin: auto;
+  max-width: 700px;
+  position: absolute;
   right: 0;
   table-layout: fixed;
   text-align: center;
+  top: 0;
   #main {
     display: table;
     width: 100%;
@@ -81,30 +60,24 @@ p {
     margin-top: 1em;
   }
   .button-custom {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
     background-size: 39px 39px;
     background: url("../img/appstore-custom.svg") 13px center no-repeat;
     border-radius: 4px;
     box-shadow: 0 0 0 1px darken(@accent-color, 20%) inset;
+    box-sizing: border-box;
     color: @accent-color;
     padding: 9px 15px 10px 64px;
     text-align: left;
     &:hover {
-      -moz-animation: pulse 1s infinite ease-in-out;
-      -ms-animation: pulse 1s infinite ease-in-out;
-      -o-animation: pulse 1s infinite ease-in-out;
-      -webkit-animation: pulse 1s infinite ease-in-out;
       animation: pulse 1s infinite ease-in-out;
-      box-shadow: 0 0 0 1px #d0a770 inset;
+      box-shadow: 0 0 0 1px darken(@accent-color, 30%) inset;
     }
   }
   .carousel-container {
     background: url("../img/iphone.svg") center center no-repeat;
     height: 547px;
-    width: 268px;
     margin: 0 auto;
+    width: 268px;
     .carousel {
       margin-left: 17px;
       &, img {
@@ -118,18 +91,17 @@ p {
   }
   #copyright {
     a, a:visited {
-      color: rgba(255,255,255,.3);
-      margin-right: 20px;
+      color: fade(#fff, 30%);
     }
     a:hover, a:visited:hover {
-      color: rgba(255,255,255,.5);
+      color: fade(#fff, 50%);
     }
   }
 }
 @media screen and (max-width: 700px) {
   #wrapper {
-    max-width: 90%;
     margin: 2em auto;
+    max-width: 90%;
   }
   #meta, #screenshots {
     margin-bottom: 2em;
@@ -153,23 +125,13 @@ p {
   }
 }
 
-.pulse-animation {
+@keyframes pulse {
   0% { background-color: darken(@background-color, 5%); }
   50% { background-color: darken(@background-color, 10%); }
   100% { background-color: darken(@background-color, 5%); }
 }
-.top-animation {
+@keyframes top {
   0% { opacity: 0; top: 30px; }
   50%	{ opacity: 0;	top: 30px; }
   100% { opacity: 1; top: 0; }
 }
-@-webkit-keyframes pulse { .pulse-animation }
-@-moz-keyframes pulse { .pulse-animation }
-@-ms-keyframes pulse { .pulse-animation }
-@-o-keyframes pulse { .pulse-animation }
-@keyframes pulse { .pulse-animation }
-@-webkit-keyframes top { .top-animation }
-@-moz-keyframes top { .top-animation }
-@-ms-keyframes top { .top-animation }
-@-o-keyframes top { .top-animation }
-@keyframes top { .top-animation }

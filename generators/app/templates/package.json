@@ -10,6 +10,7 @@
   "dependencies": {
     "hexo": "^3.2.0",
     "hexo-all-minifier": "0.0.12",
+    "hexo-autoprefixer": "^1.0.0",
     "hexo-beautify": "^1.0.2",
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-less": "^0.1.3",
