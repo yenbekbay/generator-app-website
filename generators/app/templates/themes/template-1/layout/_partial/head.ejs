@@ -11,24 +11,17 @@
   <meta property="og:image" content="<%- url_for('/img/logo.png') %>"/>
   <meta property="og:description" content="<%= config.tagline %>"/>
   <meta property="og:site_name" content="<%= config.title %>">
-
+  <% if (config.facebook) { %><meta property="profile:username" content="<%= config.facebook %>"><% } %>
   <% if (config.appstore_id) { %>
   <meta name="apple-itunes-app" content="app-id=<%= config.appstore_id %>">
   <meta name="twitter:card" content="app">
-  <% if (config.twitter) { %>
-  <meta name="twitter:site" content="@<%= config.twitter %>">
-  <% } %>
+  <% if (config.twitter) { %><meta name="twitter:site" content="@<%= config.twitter %>"><% } %>
   <meta name="twitter:description" content="<%= config.tagline %>">
   <meta name="twitter:app:country" content="<%= config.country %>">
   <meta name="twitter:app:name:iphone" content="<%= config.title %>">
   <meta name="twitter:app:id:iphone" content="<%= config.appstore_id %>">
   <meta name="twitter:app:url:iphone" content="https://itunes.apple.com/app/id<%= config.appstore_id %>">
   <% } %>
-
-  <% if (config.facebook) { %>
-  <meta property="profile:username" content="<%= config.facebook %>">
-  <% } %>
-
   <link rel="icon" href="<%- url_for('/img/logo.png') %>">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic&subset=latin,cyrillic">
   <%- css([
