@@ -143,6 +143,12 @@ module.exports = generator.Base.extend({
       this.templatePath('source/img/**'),
       this.destinationPath('source/img')
     );
+    this.fs.copyTpl(
+      this.templatePath('source/img/appstore-custom.svg'),
+      this.destinationPath('source/img/appstore-custom.svg'), {
+        accentColor: this.props.accentColor
+      }
+    );
     this.fs.copy(
       this.templatePath('themes/**'),
       this.destinationPath('themes')
