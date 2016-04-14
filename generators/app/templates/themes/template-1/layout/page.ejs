@@ -1,28 +1,31 @@
-<section id="content">
-  <div id="meta">
-    <h1><%= config.title %></h1>
-    <p><%= config.tagline %></p>
-    <% if (config.appstore_id) { %>
-    <% if (config.use_custom_appstore_badge) { %>
-    <a class="button button-custom" href="https://itunes.apple.com/app/id<%= config.appstore_id %>">
-      <%= __('Download on the') %><br>App Store
-    </a>
-    <% } else { %>
-    <a class="button" href="https://itunes.apple.com/app/id<%= config.appstore_id %>">
-      <img src="img/appstore-<%= config.language %>.svg">
-    </a>
-    <% } %>
-    <% } %>
-  </div>
-  <div id="screenshots">
-    <div class="carousel-container">
-      <div class="carousel">
-        <img src="img/screenshot-1.png">
-        <img src="img/screenshot-2.png">
-        <img src="img/screenshot-3.png">
-        <img src="img/screenshot-4.png">
-        <img src="img/screenshot-5.png">
+<div id="wrapper">
+  <div id="main">
+    <div id="meta">
+      <h1><%= config.title %></h1>
+      <p><%= config.tagline %></p>
+      <% if (config.appstore_id) { %>
+      <% if (config.use_custom_appstore_badge) { %>
+      <a class="button button-custom" href="https://itunes.apple.com/app/id<%= config.appstore_id %>">
+        <%= __('Download on the') %><br>App Store
+      </a>
+      <% } else { %>
+      <a class="button" href="https://itunes.apple.com/app/id<%= config.appstore_id %>">
+        <img src="img/appstore-<%= config.language %>.svg">
+      </a>
+      <% } %>
+      <% } %>
+    </div>
+    <div id="screenshots">
+      <div class="carousel-container">
+        <div class="carousel">
+          <img src="img/screenshot-1.png">
+          <img src="img/screenshot-2.png">
+          <img src="img/screenshot-3.png">
+          <img src="img/screenshot-4.png">
+          <img src="img/screenshot-5.png">
+        </div>
       </div>
     </div>
   </div>
-</section>
+  <div id="copyright">© <a href="<%= config.author_url %>"><%= config.author %></a></div>
+</div>

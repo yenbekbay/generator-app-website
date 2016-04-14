@@ -56,20 +56,26 @@ p {
   margin-bottom: 1em;
   line-height: 1.5;
 }
-#content {
+#wrapper {
   -moz-animation: top 1s 1 ease-in-out;
 	-ms-animation: top 1s 1 ease-in-out;
 	-o-animation: top 1s 1 ease-in-out;
 	-webkit-animation: top 1s 1 ease-in-out;
 	animation: top 1s 1 ease-in-out;
   display: table;
-  height: 100%;
-  margin: 1em auto;
   max-width: 700px;
-  position: relative;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   table-layout: fixed;
   text-align: center;
-  width: 100%;
+  #main {
+    display: table;
+    width: 100%;
+  }
   .button, .button:visited {
     display: inline-block;
     margin-top: 1em;
@@ -98,6 +104,7 @@ p {
     background: url("../img/iphone.svg") center center no-repeat;
     height: 547px;
     width: 268px;
+    margin: 0 auto;
     .carousel {
       margin-left: 17px;
       &, img {
@@ -105,51 +112,44 @@ p {
         width: 234px;
       }
       img {
-        margin: 66px 17px 0 0;
+        margin: 66px 0 0 0;
       }
     }
   }
-}
-.copyright {
-  margin-bottom: 1em;
-  text-align: center;
-  a, a:visited {
-    color: rgba(255,255,255,.3);
-    margin-right: 20px;
-  }
-  a:hover, a:visited:hover {
-    color: rgba(255,255,255,.5);
+  #copyright {
+    a, a:visited {
+      color: rgba(255,255,255,.3);
+      margin-right: 20px;
+    }
+    a:hover, a:visited:hover {
+      color: rgba(255,255,255,.5);
+    }
   }
 }
 @media screen and (max-width: 700px) {
-  #content {
+  #wrapper {
     max-width: 90%;
     margin: 2em auto;
-    > div {
-      display: inline-block;
-    }
-    #meta {
-      padding-bottom: 2em;
-    }
   }
-  .copyright {
+  #meta, #screenshots {
     margin-bottom: 2em;
   }
 }
 @media screen and (min-width: 700px) {
-  #content {
-    > div {
-      display: table-cell;
-      height: 100%;
-      padding: 1em;
-      vertical-align: middle;
-    }
-    #meta {
-      text-align: right;
-    }
-    #screenshots {
-      text-align: left;
-    }
+  #meta, #screenshots {
+    display: table-cell;
+    height: 100%;
+    padding: 1em;
+    vertical-align: middle;
+  }
+  #meta {
+    text-align: right;
+  }
+  #screenshots {
+    text-align: left;
+  }
+  #copyright {
+    display: table-row;
   }
 }
 
