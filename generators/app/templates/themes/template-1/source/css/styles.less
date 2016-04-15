@@ -33,11 +33,11 @@ h1, p {
 h1 {
   color: @text-color;
   font-size: 3em;
-  margin-bottom: 0.5em;
+  margin: 40px 0 20px 0;
 }
 p {
   line-height: 1.5;
-  margin-bottom: 1em;
+  margin: 0;
 }
 #wrapper {
 	animation: top 1s 1 ease-in-out;
@@ -57,7 +57,7 @@ p {
   }
   .button, .button:visited {
     display: inline-block;
-    margin-top: 1em;
+    margin-top: 20px;
   }
   .button-custom {
     background-size: 39px 39px;
@@ -100,17 +100,21 @@ p {
 }
 @media screen and (max-width: 700px) {
   #wrapper {
-    margin: 2em auto;
-    max-width: 90%;
+    margin: 0 auto;
+    width: 90%;
   }
-  #meta, #screenshots {
-    margin-bottom: 2em;
+  #meta, #screenshots, #copyright {
+    margin-bottom: 40px;
   }
 }
 @media screen and (min-width: 700px) {
+  #main {
+    padding-bottom: 1em;
+  }
   #meta, #screenshots {
     display: table-cell;
     height: 100%;
+    width: 50%;
     padding: 1em;
     vertical-align: middle;
   }
