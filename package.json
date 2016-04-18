@@ -1,6 +1,6 @@
 {
   "name": "generator-app-website",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Generator for an iOS app website built with hexo",
   "homepage": "https://github.com/N17R/generator-app-website",
   "author": {
