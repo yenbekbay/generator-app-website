@@ -2,7 +2,7 @@
   "name": "generator-app-website",
   "version": "0.1.4",
   "description": "Generator for an iOS app website built with hexo",
-  "homepage": "https://github.com/yenbekbay/generator-app-website",
+  "homepage": "https://github.com/anvilabs/generator-app-website",
   "author": {
     "name": "Ayan Yenbekbay",
     "email": "ayan.yenb@gmail.com",
