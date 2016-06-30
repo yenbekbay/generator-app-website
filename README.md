@@ -40,5 +40,5 @@ MIT © [Ayan Yenbekbay](http://yenbekbay.me)
 
 [npm-image]: https://badge.fury.io/js/generator-app-website.svg
 [npm-url]: https://npmjs.org/package/generator-app-website
-[daviddm-image]: https://david-dm.org/yenbekbay/generator-app-website.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/yenbekbay/generator-app-website
+[daviddm-image]: https://david-dm.org/anvilabs/generator-app-website.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/anvilabs/generator-app-website
