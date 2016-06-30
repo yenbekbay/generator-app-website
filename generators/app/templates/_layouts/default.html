@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html itemscope itemtype="http://schema.org/WebSite" lang="{{ site.language }}-{{ site.country }}" class="no-js">
+<!--<![endif]-->
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# profile: http://ogp.me/ns/profile#">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ title|default(site.title) }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description|default(site.description) }}">
+  <meta name="theme-color" content="{{ site.color }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:image" content="{{ site.url }}/img/logo.png">
+  {% if site.facebook %}<meta property="profile:username" content="{{ site.facebook }}">{% endif %}
+
+  <meta name="twitter:card" content="app">
+  {% if site.twitter %}<meta name="twitter:site" content="@{{ site.twitter }}">{% endif %}
+  <meta name="twitter:description" content="{{ site.description }}">
+  <meta name="twitter:app:country" content="{{ site.country }}">
+  {% if site.appStoreId %}
+  <meta name="twitter:app:name:iphone" content="{{ site.title }}">
+  <meta name="twitter:app:id:iphone" content="{{ site.appStoreId }}">
+  <meta name="twitter:app:url:iphone" content="https://itunes.apple.com/app/id{{ site.appStoreId }}">
+  <meta name="apple-itunes-app" content="app-id={{ site.appStoreId }}">
+  <meta property="al:ios:url" content="https://itunes.apple.com/app/id{{ site.appStoreId }}">
+  <meta property="al:ios:app_store_id" content="{{ site.appStoreId }}">
+  <meta property="al:ios:app_name" content="{{ site.title }}">
+  {% endif %}
+  {% if site.googlePlayId %}
+  <meta name="twitter:app:name:googleplay" content="{{ site.title }}">
+  <meta name="twitter:app:id:googleplay" content="{{ site.googlePlayId }}">
+  <meta name="twitter:app:url:googleplay" content="https://play.google.com/store/apps/details?id={{ site.googlePlayId }}">
+  <meta property="al:android:url" content="https://play.google.com/store/apps/details?id={{ site.googlePlayId }}">
+  <meta property="al:android:app_name" content="{{ site.title}}">
+  <meta property="al:android:package" content="{{ site.googlePlayId }}">
+  {% endif %}
+
+  <link rel="icon" href="/img/logo.png">
+  <link rel="apple-touch-icon-precomposed" href="/img/logo.png">
+  <link rel="stylesheet" href="/css/bundle.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic&subset=latin,cyrillic">
+
+	<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<body>
+  <div id="wrapper">
+    <div id="main">
+      <div id="meta">
+        <h1><img class="logo" src="/img/logo.png">{{ site.title }}</h1>
+        <p>{{ site.description }}</p>
+        {% if site.appStoreId %}
+        <a class="button" href="https://itunes.apple.com/app/id{{ site.appStoreId }}">
+          <img src="/img/appstore-{{ site.language }}.svg">
+        </a>
+        {% endif %}
+        {% if site.googlePlayId %}
+        <a class="button" href="https://play.google.com/store/apps/details?id={{ site.googlePlayId }}">
+          <img src="/img/googleplay-{{ site.language }}.svg">
+        </a>
+        {% endif %}
+      </div>
+      <div id="screenshots">
+        <div class="carousel-container">
+          <div class="carousel">
+            <img src="/img/screenshot-1.jpg">
+            <img src="/img/screenshot-2.jpg">
+            <img src="/img/screenshot-3.jpg">
+            <img src="/img/screenshot-4.jpg">
+            <img src="/img/screenshot-5.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="copyright">© <a href="{{ site.author.url }}">{{ site.author.name }}</a></div>
+  </div>
+
+  <script src="/js/bundle.js"></script>
+  {% if site.googleAnalytics %}
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{ site.googleAnalytics }}']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  {% endif %}
+</body>
+
+</html>

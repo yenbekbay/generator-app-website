@@ -1,20 +1,31 @@
 {
   "name": "<%= packageName %>",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
-  "hexo": {
-    "version": "3.2.0"
-  },
   "author": "<%= authorName %>",
   "license": "MIT",
+  "scripts": {
+    "build": "node index.js",
+    "start": "node index.js --serve",
+    "deploy": "node index.js && surge _build"
+  },
   "dependencies": {
-    "hexo": "^3.2.0",
-    "hexo-all-minifier": "0.0.12",
-    "hexo-autoprefixer": "^1.0.0",
-    "hexo-beautify": "^1.0.2",
-    "hexo-renderer-ejs": "^0.2.0",
-    "hexo-renderer-less": "^0.1.3",
-    "hexo-renderer-marked": "^0.2.10",
-    "hexo-server": "^0.2.0"
+    "flickity": "^1.2.1",
+    "metalsmith": "^2.1.0",
+    "metalsmith-autoprefixer": "^1.1.0",
+    "metalsmith-clean-css": "^5.0.0",
+    "metalsmith-concat": "^6.0.0",
+    "metalsmith-html-minifier": "^2.0.0",
+    "metalsmith-layouts": "^1.6.5",
+    "metalsmith-less": "^2.0.0",
+    "metalsmith-serve": "0.0.7",
+    "metalsmith-uglify": "^1.3.0",
+    "metalsmith-watch": "^1.0.3",
+    "minimist": "^1.2.0",
+    "normalize.css": "^4.2.0",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "surge": "^0.18.0"
   }
 }

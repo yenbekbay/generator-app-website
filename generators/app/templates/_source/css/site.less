@@ -66,22 +66,8 @@ p {
     display: inline-block;
     margin-top: 20px;
   }
-  .button-custom {
-    background-size: 39px 39px;
-    background: url("../img/appstore-custom.svg") 13px center no-repeat;
-    border-radius: 4px;
-    box-shadow: 0 0 0 1px darken(@accent-color, 20%) inset;
-    box-sizing: border-box;
-    color: @accent-color;
-    padding: 9px 15px 10px 64px;
-    text-align: left;
-    &:hover {
-      animation: pulse 1s infinite ease-in-out;
-      box-shadow: 0 0 0 1px darken(@accent-color, 30%) inset;
-    }
-  }
   .carousel-container {
-    background: url("../img/iphone.svg") center center no-repeat;
+    background: url("../../img/iphone.svg") center center no-repeat;
     height: 547px;
     margin: 0 auto;
     width: 268px;
@@ -124,9 +110,9 @@ p {
   #meta, #screenshots {
     display: table-cell;
     height: 100%;
-    width: 50%;
     padding: 1em;
     vertical-align: middle;
+    width: 50%;
   }
   #meta {
     text-align: right;
@@ -139,11 +125,6 @@ p {
   }
 }
 
-@keyframes pulse {
-  0% { background-color: darken(@background-color, 5%); }
-  50% { background-color: darken(@background-color, 10%); }
-  100% { background-color: darken(@background-color, 5%); }
-}
 @keyframes top {
   0% { opacity: 0; top: 30px; }
   50%	{ opacity: 0;	top: 30px; }

@@ -1,0 +1,16 @@
+{
+  "title": "<%= title %>",
+  "description": "<%= description %>",
+  "language": "<%= language %>",
+  "country": "<%= country %>",
+  "author": {
+    "name": "<%= authorName %>",
+    "url": "<%= authorUrl %>"
+  },
+  "url": "<%= url %>",
+  "facebook": "<%= facebook %>",
+  "twitter": "<%= twitter %>",
+  "googleAnalytics": "<%= googleAnalytics %>",
+  "appStoreId": "<%= appStoreId %>",
+  "googlePlayId": "<%= googlePlayId %>"
+}

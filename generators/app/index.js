@@ -7,17 +7,15 @@ const slug = require('slug');
 
 function makePackageName(name) {
   name = slug(name).toLowerCase();
-  name = name.indexOf('website-') === 0 ? name : name + '-website';
-  return name;
+
+  return name.indexOf('website-') === 0 ? name : name + '-website';
 }
 
 module.exports = generator.Base.extend({
   initializing: function() {
     this.props = {};
   },
-  prompts: function() {
-    const done = this.async();
-
+  prompting: function() {
     const prompts = [{
       name: 'authorName',
       message: 'Your name',
@@ -31,38 +29,36 @@ module.exports = generator.Base.extend({
       default: path.basename(process.cwd()),
       validate: str => str.length > 0
     }, {
-      name: 'appTagline',
-      message: 'Your app\'s tagline',
+      name: 'appDescription',
+      message: 'Your app\'s description',
       validate: str => str.length > 0
     }, {
-      name: 'appUrl',
+      name: 'url',
       message: 'Link to where this website will be located',
       validate: str => str.length > 0
     }, {
       name: 'language',
       message: 'Your app\'s primary language',
       type: 'list',
+      default: 'en',
       choices: [{
-        name: 'Russian',
-        value: 'ru'
-      }, {
         name: 'English',
         value: 'en'
+      }, {
+        name: 'Russian',
+        value: 'ru'
       }]
     }, {
       name: 'country',
-      message: 'Your app\'s target country',
-      type: 'list',
-      choices: [{
-        name: 'Kazakhstan',
-        value: 'KZ'
-      }, {
-        name: 'USA',
-        value: 'US'
-      }]
+      message: 'Your app\'s target country (two letter code)',
+      default: 'US',
+      validate: str => str.length === 2
     }, {
       name: 'appStoreId',
       message: 'Your app\'s App Store ID'
+    }, {
+      name: 'googlePlayId',
+      message: 'Your app\'s Google Play package name'
     }, {
       name: 'twitter',
       message: 'Your app\'s Twitter username'
@@ -72,12 +68,6 @@ module.exports = generator.Base.extend({
     }, {
       name: 'googleAnalytics',
       message: 'Your Google Analytics tracking code (UA-XXXXXXXX-X)'
-    }, {
-      name: 'useCustomAppStoreBadge',
-      message: 'Use custom Download on the App Store badge?',
-      type: 'confirm',
-      default: true,
-      when: answers => !!answers.appStoreId
     }, {
       name: 'backgroundColor',
       message: 'Background color',
@@ -94,10 +84,9 @@ module.exports = generator.Base.extend({
 
     this.log('--=[ generator-app-website ]=--');
 
-    this.prompt(prompts, props => {
+    return this.prompt(prompts).then(props => {
       this.props = props;
       this.props.packageName = makePackageName(props.appName);
-      done();
     });
   },
   default: function() {
@@ -111,6 +100,57 @@ module.exports = generator.Base.extend({
     });
   },
   writing: function() {
+    this.fs.copy(
+      this.templatePath('_layouts/**'),
+      this.destinationPath('_layouts')
+    );
+    this.fs.copy(
+      this.templatePath('_source/**'),
+      this.destinationPath('_source')
+    );
+    this.fs.copyTpl(
+      this.templatePath('_source/css/site.less'),
+      this.destinationPath('_source/css/site.less'), {
+        backgroundColor: this.props.backgroundColor,
+        textColor: this.props.textColor,
+        accentColor: this.props.accentColor
+      }
+    );
+    const domain = this.props.url
+      .match(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/i);
+    if (domain && domain.length > 1) {
+      this.fs.write('_source/CNAME', domain[1]);
+    }
+
+    this.fs.copyTpl(
+      this.templatePath('config.json'),
+      this.destinationPath('config.json'), {
+        title: this.props.appName,
+        description: this.props.appDescription,
+        url: this.props.url,
+        language: this.props.language,
+        country: this.props.country,
+        authorName: this.props.authorName,
+        authorUrl: this.props.authorUrl,
+        appStoreId: this.props.appStoreId,
+        googlePlayId: this.props.googlePlayId,
+        twitter: this.props.twitter,
+        facebook: this.props.facebook,
+        googleAnalytics: this.props.googleAnalytics
+      }
+    );
+    this.fs.copy(
+      this.templatePath('gitignore'),
+      this.destinationPath('.gitignore')
+    );
+    this.fs.copy(
+      this.templatePath('index.js'),
+      this.destinationPath('index.js')
+    );
+    this.fs.copy(
+      this.templatePath('LICENSE'),
+      this.destinationPath('LICENSE')
+    );
     this.fs.copyTpl(
       this.templatePath('package.json'),
       this.destinationPath('package.json'), {
@@ -119,54 +159,12 @@ module.exports = generator.Base.extend({
       }
     );
     this.fs.copyTpl(
-      this.templatePath('_config.yml'),
-      this.destinationPath('_config.yml'), {
-        appName: this.props.appName,
-        appTagline: this.props.appTagline,
-        appUrl: this.props.appUrl,
-        language: this.props.language,
-        country: this.props.country,
-        authorName: this.props.authorName,
-        authorUrl: this.props.authorUrl,
-        appStoreId: this.props.appStoreId,
-        twitter: this.props.twitter,
-        facebook: this.props.facebook,
-        googleAnalytics: this.props.googleAnalytics,
-        useCustomAppStoreBadge: this.props.useCustomAppStoreBadge || true
+      this.templatePath('README.md'),
+      this.destinationPath('README.md'), {
+        packageName: this.props.packageName,
+        appName: this.props.appName
       }
     );
-    this.fs.copy(
-      this.templatePath('gitignore'),
-      this.destinationPath('.gitignore')
-    );
-    this.fs.copy(
-      this.templatePath('source/img/**'),
-      this.destinationPath('source/img')
-    );
-    this.fs.copyTpl(
-      this.templatePath('source/img/appstore-custom.svg'),
-      this.destinationPath('source/img/appstore-custom.svg'), {
-        accentColor: this.props.accentColor
-      }
-    );
-    this.fs.copy(
-      this.templatePath('themes/**'),
-      this.destinationPath('themes')
-    );
-    this.fs.copyTpl(
-      this.templatePath('themes/template-1/source/css/styles.less'),
-      this.destinationPath('themes/template-1/source/css/styles.less'), {
-        backgroundColor: this.props.backgroundColor,
-        textColor: this.props.textColor,
-        accentColor: this.props.accentColor
-      }
-    );
-    const domain = this.props.appUrl
-      .match(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/i);
-    if (domain && domain.length > 1) {
-      this.fs.write('source/CNAME', domain[1]);
-    }
-    this.fs.write('source/index.md', '');
   },
 
   install: function() {
