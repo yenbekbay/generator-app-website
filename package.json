@@ -1,6 +1,6 @@
 {
   "name": "generator-app-website",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Generator for an iOS or Android app website built with hexo",
   "homepage": "https://github.com/anvilabs/generator-app-website",
   "author": {
