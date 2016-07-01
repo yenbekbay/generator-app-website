@@ -48,7 +48,7 @@
   <link rel="icon" href="/img/logo.png">
   <link rel="apple-touch-icon-precomposed" href="/img/logo.png">
   <link rel="stylesheet" href="/css/bundle.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic&subset=latin,cyrillic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin,cyrillic">
 
 	<!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -61,36 +61,61 @@
 <![endif]-->
 
 <body>
-  <div id="wrapper">
-    <div id="main">
-      <div id="meta">
-        <h1><img class="logo" src="/img/logo.png">{{ site.title }}</h1>
-        <p>{{ site.description }}</p>
-        {% if site.appStoreId %}
-        <a class="button" href="https://itunes.apple.com/app/id{{ site.appStoreId }}">
-          <img src="/img/appstore-{{ site.language }}.svg">
-        </a>
-        {% endif %}
-        {% if site.googlePlayId %}
-        <a class="button" href="https://play.google.com/store/apps/details?id={{ site.googlePlayId }}">
-          <img src="/img/googleplay-{{ site.language }}.svg">
-        </a>
-        {% endif %}
-      </div>
-      <div id="screenshots">
-        <div class="carousel-container">
-          <div class="carousel">
-            <img src="/img/screenshot-1.jpg">
-            <img src="/img/screenshot-2.jpg">
-            <img src="/img/screenshot-3.jpg">
-            <img src="/img/screenshot-4.jpg">
-            <img src="/img/screenshot-5.jpg">
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column left is-offset-2 is-4">
+            <h1 class="title is-1"><img class="logo" src="/img/logo.png">{{ site.title }}</h1>
+            <p>{{ site.description }}</p>
+            {% if site.mailchimpFormActionUrl %}
+            <form action="{{ site.mailchimpFormActionUrl }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate mc-form" target="_blank" novalidate="novalidate">
+              <div class="control is-grouped">
+                <div class="control is-expanded">
+                  <input type="email" value="" name="EMAIL" class="input is-flat required email" id="mce-EMAIL" placeholder="{% if site.language == 'ru' %}Ваш e-mail{% else %}Your email{% endif %}" required="" aria-required="true">
+                </div>
+                <div class="control">
+                  <input type="submit" value="{% if site.language == 'ru' %}Подписаться{% else %}Subscribe{% endif %}" name="subscribe" id="mc-embedded-subscribe" class="button is-white is-outlined">
+                </div>
+              </div>
+              <div id="mce-responses">
+                <div class="notification is-danger response" id="mce-error-response" style="display:none"></div>
+                <div class="notification is-success response" id="mce-success-response" style="display:none"></div>
+              </div>
+              <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                <input type="text" name="b_b43b93fe633f0560b2a72a69c_52585e8803" tabindex="-1" value="">
+              </div>
+            </form>
+            {% endif %}
+            {% if site.appStoreId %}
+            <a class="download-button" href="https://itunes.apple.com/app/id{{ site.appStoreId }}">
+              <img src="/img/appstore-{{ site.language }}.svg">
+            </a>
+            {% endif %}
+            {% if site.googlePlayId %}
+            <a class="download-button" href="https://play.google.com/store/apps/details?id={{ site.googlePlayId }}">
+              <img src="/img/googleplay-{{ site.language }}.svg">
+            </a>
+            {% endif %}
+          </div>
+          <div class="column right is-4">
+            <div class="carousel-container">
+              <div class="carousel">
+                <img src="/img/screenshot-1.jpg">
+                <img src="/img/screenshot-2.jpg">
+                <img src="/img/screenshot-3.jpg">
+                <img src="/img/screenshot-4.jpg">
+                <img src="/img/screenshot-5.jpg">
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="copyright">© <a href="{{ site.author.url }}">{{ site.author.name }}</a></div>
-  </div>
+    <div class="hero-foot">
+      <div class="has-text-centered">© <a href="{{ site.author.url }}">{{ site.author.name }}</a></div>
+    </div>
+  </section>
 
   <script src="/js/bundle.js"></script>
   {% if site.googleAnalytics %}

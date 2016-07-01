@@ -1,0 +1,71 @@
+$family-sans-serif: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+$primary: <%= accentColor %>
+$body-background: <%= backgroundColor %>
+$text: fade-out(<%= textColor %>, 0.3)
+$text-strong: <%= textColor %>
+$text-light: fade-out(<%= textColor %>, 0.5)
+$link: fade-out(<%= textColor %>, 0.6)
+$link-hover: $text
+$link-active: $text
+$size-normal: 1.13em
+$size-1: 3em
+
+@import "../../node_modules/bulma/bulma"
+
+::selection
+  background: fade-out(darken($primary, 0.2), 0.5)
+
+a
+  transition-property: background-color, box-shadow, color, opacity
+  transition-duration: 0.1s
+  transition-timing-function: ease-in-out
+
+.title
+  color: #fff
+
+.hero
+  background: none
+
+.hero-foot
+  padding-bottom: 20px
+
+.column.left
+  +tablet
+    text-align: right
+  +mobile
+    text-align: center
+
+.column.right
+  +tablet
+    text-align: left
+  +mobile
+    text-align: center
+
+.logo
+  border-radius: 24%
+  height: 60px
+  margin: 0 15px 6px 0
+  vertical-align: middle
+  width: 60px
+
+.download-button, .download-button:visited, .mc-form
+  display: inline-block
+  margin-top: 20px
+
+.input, .textarea, .button
+  font-size: 1em
+
+.carousel-container
+  background: url("../../img/iphone.svg") center center no-repeat
+  height: 547px
+  margin: 0 auto
+  width: 268px
+  +tablet
+    margin: 0
+  .carousel
+    margin-left: 17px
+    &, img
+      height: 415px
+      width: 234px
+    img
+      margin: 66px 0 0 0

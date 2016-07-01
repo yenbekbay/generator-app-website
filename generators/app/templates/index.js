@@ -5,7 +5,7 @@ const cleanCSS = require('metalsmith-clean-css');
 const concat = require('metalsmith-concat');
 const htmlMinifier = require('metalsmith-html-minifier');
 const layouts = require('metalsmith-layouts');
-const less = require('metalsmith-less');
+const sass = require('metalsmith-sass');
 const Metalsmith = require('metalsmith');
 const serve = require('metalsmith-serve');
 const uglify = require('metalsmith-uglify');
@@ -24,11 +24,10 @@ const task = Metalsmith(__dirname)
     engine: 'swig',
     directory: '_layouts'
   }))
-  .use(less())
+  .use(sass())
   .use(autoprefixer())
   .use(concat({
     files: [
-      'normalize/normalize.css',
       'flickity/dist/flickity.min.css',
       'css/*.css'
     ],
@@ -53,7 +52,7 @@ if (argv.serve || argv.s) {
     .use(watch({
       paths: {
         '_source/**/*.md': true,
-        '_source/**/*.{less,js}': '**/*',
+        '_source/**/*.{sass,js}': '**/*',
         '_layouts/**/*': '**/*'
       }
     }))

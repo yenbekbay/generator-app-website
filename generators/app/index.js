@@ -113,8 +113,8 @@ module.exports = generator.Base.extend({
       this.destinationPath('_source')
     );
     this.fs.copyTpl(
-      this.templatePath('_source/css/site.less'),
-      this.destinationPath('_source/css/site.less'), {
+      this.templatePath('_source/css/site.sass'),
+      this.destinationPath('_source/css/site.sass'), {
         backgroundColor: this.props.backgroundColor,
         textColor: this.props.textColor,
         accentColor: this.props.accentColor
