@@ -12,5 +12,6 @@
   "twitter": "<%= twitter %>",
   "googleAnalytics": "<%= googleAnalytics %>",
   "appStoreId": "<%= appStoreId %>",
-  "googlePlayId": "<%= googlePlayId %>"
+  "googlePlayId": "<%= googlePlayId %>",
+  "mailchimpFormActionUrl": "<%= mailchimpFormActionUrl %>"
 }

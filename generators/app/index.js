@@ -60,6 +60,10 @@ module.exports = generator.Base.extend({
       name: 'googlePlayId',
       message: 'Your app\'s Google Play package name'
     }, {
+      name: 'mailchimpFormActionUrl',
+      message: 'Your Mailchimp list form action url ' +
+        '(http://bit.ly/mc-form-action-url)'
+    }, {
       name: 'twitter',
       message: 'Your app\'s Twitter username'
     }, {
@@ -136,7 +140,8 @@ module.exports = generator.Base.extend({
         googlePlayId: this.props.googlePlayId,
         twitter: this.props.twitter,
         facebook: this.props.facebook,
-        googleAnalytics: this.props.googleAnalytics
+        googleAnalytics: this.props.googleAnalytics,
+        mailchimpFormActionUrl: this.props.mailchimpFormActionUrl
       }
     );
     this.fs.copy(
