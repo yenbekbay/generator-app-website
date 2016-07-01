@@ -12,6 +12,14 @@ $size-1: 3em
 
 @import "../../node_modules/bulma/bulma"
 
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translate3d(0, 20%, 0)
+  to
+    opacity: 1
+    transform: none
+
 ::selection
   background: fade-out(darken($primary, 0.2), 0.5)
 
@@ -24,6 +32,9 @@ a
   color: #fff
 
 .hero
+  animation-duration: 1s
+  animation-fill-mode: both
+  animation-name: fadeInUp
   background: none
 
 .hero-foot
