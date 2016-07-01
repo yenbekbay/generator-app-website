@@ -51,7 +51,6 @@ if (argv.serve || argv.s) {
   task
     .use(watch({
       paths: {
-        '_source/**/*.md': true,
         '_source/**/*.{sass,js}': '**/*',
         '_layouts/**/*': '**/*'
       }
