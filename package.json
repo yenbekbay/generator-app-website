@@ -2,7 +2,7 @@
   "name": "generator-app-website",
   "version": "0.2.3",
   "description": "Generator for an iOS or Android app website built with hexo",
-"repository": "yenbekbay/generator-app-website",
+  "repository": "yenbekbay/generator-app-website",
   "homepage": "https://github.com/yenbekbay/generator-app-website#readme",
   "bugs": {
     "url": "https://github.com/yenbekbay/generator-app-website/issues"
